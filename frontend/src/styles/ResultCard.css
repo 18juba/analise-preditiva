@@ -1,0 +1,47 @@
+.result-card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  border: 1px solid transparent;
+}
+
+.result-card h3 {
+  margin: 0;
+}
+
+.result-card p {
+  font-size: 0.9rem;
+  margin-top: 8px;
+}
+
+/* Modifiers */
+.result-card--grave {
+  background-color: #fee2e2;
+  border-color: #ef4444;
+}
+
+.result-card--grave h3,
+.result-card--grave p {
+  color: #dc2626;
+}
+
+.result-card--moderado {
+  background-color: #ffedd5;
+  border-color: #f59e0b;
+}
+
+.result-card--moderado h3,
+.result-card--moderado p {
+  color: #d97706;
+}
+
+.result-card--safe {
+  background-color: #dcfce7;
+  border-color: #22c55e;
+}
+
+.result-card--safe h3,
+.result-card--safe p {
+  color: #16a34a;
+}
