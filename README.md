@@ -8,7 +8,7 @@ O objetivo desse trabalho é construir uma aplicação web que seja capaz de det
 ## Equipe e funções
 - Charles Lima -> Treinamento do Modelo
 - André Lucas -> Front-End
-- José Lucas -> Back-End
+- Jorge Lucas -> Back-End
 - Paulo Vinícius -> Construção do dataset
 - Conrado Einstein -> Back-End
 
