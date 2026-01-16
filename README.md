@@ -25,9 +25,6 @@ backend
 frontend/
 
 naive_bayes/
-|--dataset/
-|    |--DatasetRaw/
-|        |--Acidentes/ #pasta com imagens utilizadas para treino e testes
 |--Trabalho_Probest_Acidentes.ipynb #notebook com o treinamento do modelo 
 
 slides/ #pasta contendo os slides
