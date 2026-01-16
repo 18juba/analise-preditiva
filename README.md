@@ -17,7 +17,7 @@ O objetivo desse trabalho é construir uma aplicação web que seja capaz de det
 ## Organização do Trabalho
 
 ```
-backend
+backend/
 |--modelo/
     |--modelo.pkl
     |--scaler.pkl
