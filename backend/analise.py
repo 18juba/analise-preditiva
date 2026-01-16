@@ -1,33 +1,35 @@
 import joblib
 import numpy as np
-import cv2
+from tensorflow.keras.preprocessing import image
 
-model = joblib.load('./modelo/modelo_treinado.pkl')
+# Carrega modelo e scaler
+model = joblib.load('./modelo/modelo.pkl')
+scaler = joblib.load('./modelo/scaler.pkl')
 
 def preprocessar_imagem(image_bytes):
     img_array = np.frombuffer(image_bytes, np.uint8)
-
-    imagem = cv2.imdecode(img_array, cv2.IMREAD_GRAYSCALE)
-
-    # redimensiona (exemplo)
-    imagem = cv2.resize(imagem, (64, 64))
-
-    # normaliza (se você fez isso no treino)
-    imagem = imagem / 255.0
-
-    # achata para vetor
-    imagem = imagem.flatten()
-
-    # formato (1, n_features)
-    return imagem.reshape(1, -1)
-
+    
+    from PIL import Image
+    import io
+    img = Image.open(io.BytesIO(image_bytes)).convert('RGB')
+    
+    img = img.resize((64, 64))
+    
+    img_array = np.array(img) / 255.0
+    
+    img_array = img_array.flatten()
+    
+    img_array = scaler.transform([img_array])
+    
+    return img_array
 
 def analisar(image_bytes):
     imagem = preprocessar_imagem(image_bytes)
-
+    
     classe = model.predict(imagem)[0]
     probabilidades = model.predict_proba(imagem)[0]
-
-    certeza = float(probabilidades[classe])
-
-    return int(classe), certeza
+    
+    idx_classe = list(model.classes_).index(classe)
+    certeza = float(probabilidades[idx_classe])
+    
+    return classe, certeza
